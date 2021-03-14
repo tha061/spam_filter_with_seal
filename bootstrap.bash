@@ -467,18 +467,18 @@ else
 fi
 
 
-# HElib is a software library that implements homomorphic encryption (HE).
-HElib="HElib"
-if [ -d $HElib ]; then
-     if [ ! -f $HElib/$Marker ]; then
-        rm -rf $HElib # remove the folder
-        install_helib
-    else
-        echo "$HElib already installed"
-    fi
-else
-    install_helib
-fi
+# # HElib is a software library that implements homomorphic encryption (HE).
+# HElib="HElib"
+# if [ -d $HElib ]; then
+#      if [ ! -f $HElib/$Marker ]; then
+#         rm -rf $HElib # remove the folder
+#         install_helib
+#     else
+#         echo "$HElib already installed"
+#     fi
+# else
+#     install_helib
+# fi
 
 # https://sourceforge.net/p/libb64/git
 BASE64="BASE64"
@@ -493,19 +493,19 @@ else
    install_base64
 fi
 
-# https://www.microsoft.com/en-us/research/project/simple-encrypted-arithmetic-library/
-# Recent version of SEAL will download and install gsl and zlib into its src folder.
-SEAL="SEAL"
-if [ -d $SEAL ]; then
-    if [ ! -f $SEAL/$Marker ]; then
-        rm -rf $SEAL # remove the folder
-        install_seal
-    else
-        echo "$SEAL already installed"
-    fi
-else
-   install_seal
-fi
+# # https://www.microsoft.com/en-us/research/project/simple-encrypted-arithmetic-library/
+# # Recent version of SEAL will download and install gsl and zlib into its src folder.
+# SEAL="SEAL"
+# if [ -d $SEAL ]; then
+#     if [ ! -f $SEAL/$Marker ]; then
+#         rm -rf $SEAL # remove the folder
+#         install_seal
+#     else
+#         echo "$SEAL already installed"
+#     fi
+# else
+#    install_seal
+# fi
 
 
 # # https://docs.aws.amazon.com/sdk-for-cpp/v1/developer-guide/credentials.html
@@ -539,25 +539,25 @@ fi
 
 
 
-# ===========================
-# Build SparkFHE native code
-# ===========================
+# # ===========================
+# # Build SparkFHE native code
+# # ===========================
 
-cd $PROJECT_ROOT
-echo "Compiling SparkFHE..."
+# cd $PROJECT_ROOT
+# echo "Compiling SparkFHE..."
 
-################
-# this generate a *_wrap.cxx file that is needed for the cmake check
-SWIG_template_file="src/SparkFHE.i"
-SWIG_template_file=$(basename $SWIG_template_file)
-SWIG_template_filename="${SWIG_template_file%.*}"
-touch src/"$SWIG_template_filename"_wrap.cxx
-################
+# ################
+# # this generate a *_wrap.cxx file that is needed for the cmake check
+# SWIG_template_file="src/SparkFHE.i"
+# SWIG_template_file=$(basename $SWIG_template_file)
+# SWIG_template_filename="${SWIG_template_file%.*}"
+# touch src/"$SWIG_template_filename"_wrap.cxx
+# ################
 
-$CMAKE_EXE -DCMAKE_PREFIX_PATH=deps -DCMAKE_CXX_COMPILER=$CPPcompiler .
-make CXX=$CPPcompiler LD=$CPPcompiler
+# $CMAKE_EXE -DCMAKE_PREFIX_PATH=deps -DCMAKE_CXX_COMPILER=$CPPcompiler .
+# make CXX=$CPPcompiler LD=$CPPcompiler
 
-echo "Compiling SparkFHE... (DONE)"
+# echo "Compiling SparkFHE... (DONE)"
 
 
 # ==============================================================================
