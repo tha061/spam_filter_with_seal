@@ -174,7 +174,8 @@ install_ntl() {
 
 install_helib() {
     echo "Installing $HElib..."
-    git clone https://github.com/SpiRITlab/HElib.git $HElib
+    # git clone https://github.com/SpiRITlab/HElib.git $HElib
+    git clone git@github.com:tha061/HElib.git $HElib
     cd $HElib
     # git checkout $HElib_Version
     $CMAKE_EXE -DCMAKE_CXX_COMPILER=$CPPcompiler -DCMAKE_INSTALL_PREFIX=$DEPS_ROOT .
@@ -201,7 +202,8 @@ install_base64() {
 
 install_seal() {
     echo "Installing $SEAL..."
-    git clone https://github.com/microsoft/SEAL.git $SEAL
+    # git clone https://github.com/microsoft/SEAL.git $SEAL
+    git clone git@github.com:tha061/SEAL.git $SEAL
     cd $SEAL
     # git checkout $SEAL_Version
     $CMAKE_EXE -DCMAKE_CXX_COMPILER=$CPPcompiler -DCMAKE_INSTALL_PREFIX=$DEPS_ROOT .
@@ -468,17 +470,17 @@ fi
 
 
 # HElib is a software library that implements homomorphic encryption (HE).
-HElib="HElib"
-if [ -d $HElib ]; then
-     if [ ! -f $HElib/$Marker ]; then
-        rm -rf $HElib # remove the folder
-        install_helib
-    else
-        echo "$HElib already installed"
-    fi
-else
-    install_helib
-fi
+# HElib="HElib"
+# if [ -d $HElib ]; then
+#      if [ ! -f $HElib/$Marker ]; then
+#         rm -rf $HElib # remove the folder
+#         install_helib
+#     else
+#         echo "$HElib already installed"
+#     fi
+# else
+#     install_helib
+# fi
 
 # https://sourceforge.net/p/libb64/git
 BASE64="BASE64"
@@ -495,17 +497,17 @@ fi
 
 # https://www.microsoft.com/en-us/research/project/simple-encrypted-arithmetic-library/
 # Recent version of SEAL will download and install gsl and zlib into its src folder.
-SEAL="SEAL"
-if [ -d $SEAL ]; then
-    if [ ! -f $SEAL/$Marker ]; then
-        rm -rf $SEAL # remove the folder
-        install_seal
-    else
-        echo "$SEAL already installed"
-    fi
-else
-   install_seal
-fi
+# SEAL="SEAL"
+# if [ -d $SEAL ]; then
+#     if [ ! -f $SEAL/$Marker ]; then
+#         rm -rf $SEAL # remove the folder
+#         install_seal
+#     else
+#         echo "$SEAL already installed"
+#     fi
+# else
+#    install_seal
+# fi
 
 
 # # https://docs.aws.amazon.com/sdk-for-cpp/v1/developer-guide/credentials.html

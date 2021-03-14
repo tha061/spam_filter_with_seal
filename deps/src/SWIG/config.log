@@ -329,7 +329,7 @@ configure: failed program was:
 configure:6556: result: no
 configure:6568: checking for library containing t_open
 configure:6599: gcc -o conftest -g -O2 -Wall -W -ansi -pedantic    conftest.c -ldl  -lpcre >&5
-/tmp/ccymT1cY.o: In function `main':
+/tmp/cciSk541.o: In function `main':
 /home/tham/spam_filter_with_seal/deps/src/SWIG/conftest.c:29: undefined reference to `t_open'
 collect2: error: ld returned 1 exit status
 configure:6599: $? = 1
@@ -367,7 +367,7 @@ configure: failed program was:
 |   return 0;
 | }
 configure:6599: gcc -o conftest -g -O2 -Wall -W -ansi -pedantic    conftest.c -lnsl  -ldl  -lpcre >&5
-/tmp/ccmSFeI4.o: In function `main':
+/tmp/ccA4Bc83.o: In function `main':
 /home/tham/spam_filter_with_seal/deps/src/SWIG/conftest.c:29: undefined reference to `t_open'
 collect2: error: ld returned 1 exit status
 configure:6599: $? = 1
