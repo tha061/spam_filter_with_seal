@@ -1,9 +1,0 @@
-#!/bin/sh
-
-# Convenience script for running SWIG before it is installed.
-# Intended for ad-hoc usage and not by the test-suite or examples.
-
-builddir=`dirname "$0"`
-SWIG_LIB='/home/tham/spam_filter_with_seal/deps/src/SWIG/Lib'
-export SWIG_LIB
-exec "$builddir/swig" "$@"
